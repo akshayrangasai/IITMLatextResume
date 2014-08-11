@@ -1,0 +1,79 @@
+%Add name of class here
+\documentclass{Standard_Resume_Format_Compact_Akshay}
+
+\author{Akshay Rangasai D}
+\RollNumber{ME10B124}
+\Address{415, Narmada Hostel, IIT Madras}
+\PhoneNumber{+91 9940070478}
+\Email{akshayrangasai.d@gmail.com}
+\begin{document}
+\maketitle
+\section{Education}
+
+%Education Table basically draws a table with four columns. You can change what the columns say by checking out the cls file 
+
+\begin{EducationTable}
+ \EduDetails{Dual Degree in Mechanical Engineering}{Indian Institute of Technology Madras}{x.xx}{2015}%{5/25}
+\EduDetails{XII}{Maharishi Vidya Mandir}{x.xy}{2010}%{8/45}
+\EduDetails{X}{Padma Sehsadri Bala Bhavan}{z.zx}{2008}%{6/39}
+
+%EduDetails writes into the table.
+
+\hline
+\end{EducationTable}
+
+
+\section{Professional Experience}
+
+\datedsection{\textbf{Internship 1}}{May - July 2013}
+
+\Point{\textbf{highlight} titled \textbf{Fart} at other stuff}
+\Point{Second point goes here. This is self explanatory}
+
+\datedsection{\textbf{Internship 2}}{May - June 2012}
+\Point{Decent Point one}
+\Point{Gen point to fill space up}
+\section{Projects and Research Experience}
+\datedsection{\textbf{BTP/DDP title goes here}}{June 2014 - Present}
+\Point{Make it sound way ncooler than it actually is}
+\datedsection{Other projects if any, courseprojects if none}{January - March 2014}
+\Point{Gen points/ rape points depending on your type}
+\section{Entrepreneurial Ventures}
+\datedsection{\textbf{Start-up}}{August 2013 - Present}
+\Point{Talk about the money or whatever it is that your startup does}
+\section{Scholastic Achievements}
+\Point{Awarded \textbf{Kishore Vaigyanik Protsahan Yojana (KVPY) Scholarship} in 2010}
+\section{Positions of Responsibility}
+
+%In case you have way too many PoRs or awards or litsoc, or generally want to save space on your page, use \multitable. It splits the page into two sides, one side being title of said PoR/achievement. Other side it'll be points. usage is \multitable{title}{Points} The contents inside the brackets can be filled up with whatever, it acts like a minipage by itself
+
+\multitable{Web and Mobile Operations Core, Shaastra 2013}{
+\Point{\textbf{One of the 17 member core team} responsible for organizing Shaastra, technical festival of IIT Madras}
+\Point{\textbf{Led a team of 25 coordinators} to develop and deploy \textbf{web services as well as internal workflow tools}}}
+
+\section{Extra-Curricular Activities}
+\multitable{Music/Dance/Sport}{
+\Point{Whatever you've done}
+}
+\multitable{Other Stuff}{
+\Point{Talk about it}
+}
+\multitable{It looks like this when you've filled it up nicely}{
+\Point{}
+\Point{}
+\Point{}
+}
+\section{Courses}
+\begin{Course}
+  \Point{Design of Machine Elements}
+  \Point{blah}
+  \Point{blah}
+  \Point{blah}
+
+  \Point{blah}
+  \Point{blah}
+  \Point{blah}
+  \Point{blah}
+  \Point{blah}
+\end{Course}
+\end{document}
