@@ -70,6 +70,6 @@ This are the basic functionalities of this template, shout-out to MR Bharath who
 
 ####Credits
 
-*[@catchmrbharath]Twitter*, *[https://github.com/catchmrbharath](github)*.
-The original one can be found *[https://github.com/catchmrbharath/IITM-Resume-Class](Here)* 
+*[@catchmrbharath](https://twitter.com/catchmrbharath)*, *[github](https://github.com/catchmrbharath)*.
+The original one can be found *[Here](https://github.com/catchmrbharath/IITM-Resume-Class)* 
 
