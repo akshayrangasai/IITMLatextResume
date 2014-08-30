@@ -57,6 +57,11 @@ Makes a bullet point
 > \multitable{Title}{Points}
 
 Splits the page into two, basically an implementation of *\maketitle* that helps create title besides the points. Useful for clumping PoRs and Awards.
+###/colorsection
+
+> \colorsection{Title}{Points}
+
+Gives a nice shade of grey as background to sections
 
 ###Courses
 
