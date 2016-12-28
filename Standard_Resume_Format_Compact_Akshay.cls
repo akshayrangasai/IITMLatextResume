@@ -1,4 +1,4 @@
-%\NeedsTexFormat{LaTeX2e}
+\NeedsTexFormat{LaTeX2e}
 \ProvidesClass{mycv}[2011/09/18 Insti Standard Template CV]
 %\renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
 %\setlength{\textwidth}{6.5in}
@@ -8,7 +8,7 @@
 %Following are all the packages required for this class file
 \RequirePackage{titlesec}
 \RequirePackage{palatino}
-\RequirePackage[hmargin=.2in, vmargin=.05in]{geometry}
+\RequirePackage[hmargin=.4in, vmargin=.2in]{geometry}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{graphicx}
@@ -17,23 +17,25 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage[letterspace=50]{microtype}
 \usepackage{color, colortbl, xcolor}
+\usepackage{hyperref}
 \RequirePackage{tabularx}
-
+%\Requirepackage[linewidth=1pt]{mdframed}
 \definecolor{Gray}{rgb}{0.9,0.9,0.9}
 %Define fields that the user can set
+
 \newcommand{\colorsection}[1]{%
-	\hrule  
-  \colorbox{Gray}{\parbox{0.99\textwidth}{\scshape \large #1 \strut}}
-  \hrule}
+	\hrulefill 
+  \colorbox{Gray}{\parbox{\textwidth}{\scshape \normalsize #1 \strut}}
+  \hrulefill}
 \newcommand{\notopcolorsection}[1]{%
 	
-  \colorbox{Gray}{\parbox{0.99\textwidth}{\scshape \large #1 \strut}}
+  \colorbox{Gray}{\parbox{\textwidth}{\scshape \large #1 \strut}}
   \hrule}
 \makeatletter
   \newcommand{\RollNumber}[1]{\def \@RollNumber {#1}}
   \newcommand{\Address}[1]{\def \@Address {#1}}
   \newcommand{\PhoneNumber}[1]{\def \@PhoneNumber {#1}}
-  \newcommand{\Email}[1]{\def \@Email {#1}}
+  \newcommand{\Email}[1]{\def \@Email {  \href{mailto:#1}{\nolinkurl{#1}}      } } %%dhuredit  
   \newcommand{\CourseVar}[1]{\def \@CourseVar {#1}}
   \RollNumber{}
   \Address{}
@@ -62,7 +64,7 @@
     \\[0.4em]
     \begin{minipage}[0.5\textwidth]{\textwidth}
 	\raggedright    
- \@PhoneNumber \ $|$ \@Email
+ \@PhoneNumber \ $|$ \@Email%\href{mailto:\@Email}\@Email %dhuredit%
 	\end{minipage}    	
 
   \end{minipage}
@@ -85,6 +87,9 @@
 \newlength{\EduTableFour}
 \newlength{\EduTableFive}
 
+%\setlength{\fboxsep}{1pt}%
+\setlength{\fboxrule}{0.1pt}%
+
 %Create a new variable TwoColumn to check for two-column format
 \newif\ifLeftTwoColumn
 \newif\ifRightTwoColumn
@@ -103,14 +108,14 @@
 \titleformat{\section}{\large\scshape\raggedright\lsstyle}{}{0em}{}[\titleline{\titlerule}]
 \titleformat{\subsection}{\large\raggedright}{}{0em}{}[\titleline{\titlerule}]
 %\titleformat{\subsection}{\normalsize\bf\scshape\raggedright}{}{.5em}{}
-\titleformat{\subsubsection}[runin]{\bf\large\raggedright}{$\bullet$}{0em}{}
+\titleformat{\subsubsection}[runin]{\bf\large\raggedright}{$\vcenter{\hbox{{\tiny$\bullet$}}}$}{0em}{}
 
 %Change the spacing options for section, subsection and subsubsection
 %The first parameter specifies the gap from the margin in the default case
 %and the indentation just before the title for runin
 %The second parameter specifies the vertical space before the title
 %The third parameter specifies the separation between title and text
-\titlespacing{\section}{0em}{0.25em}{0.2em}
+\titlespacing{\section}{0em}{0.25em}{0.1em}
 \titlespacing{\subsection}{0em}{.25em}{.15em}
 \titlespacing{\subsubsection}{0pt}{0em}{0em}
 
@@ -120,8 +125,8 @@
 %creating the table for filling in details about education. The command
 %\EduDetails must be used in order to enter stuff in here
 \newenvironment{EducationTable}{%%
-\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} c c r}%p{\EduTableOne} @{\extracolsep{\fill}} p{\EduTableTwo} p{\EduTableThree} p{\EduTableFour} p{\EduTableFive}
-      {\scshape\lsstyle Program} & {\scshape\lsstyle Institution} & {\scshape\lsstyle \%/CGPA} & {\scshape\lsstyle Completion} \\[0.1em] %
+\begin{tabular*}{0.99\textwidth}{l @{\extracolsep{\fill}} c  c r}%p{\EduTableOne} @{\extracolsep{\fill}} p{\EduTableTwo} p{\EduTableThree} p{\EduTableFour} p{\EduTableFive}
+      {\scshape\lsstyle Program} & {\scshape\lsstyle Institution} & {\scshape\lsstyle \%/CGPA} & {\scshape\lsstyle Completion}\\%[0.1em] %
 }
 {
 \end{tabular*}%
@@ -168,7 +173,8 @@
 
 \newcommand{\multitable}[2]{%
   %\subsubsection[#1]{#1 \hfill #2}%
-  \vspace{0.1em}
+	%\fbox{
+  \vspace{0em}
   \begin{minipage}[\textwidth]{0.12\textwidth}
 	\raggedright  
 	
@@ -180,11 +186,14 @@
   \raggedleft
   {\small \raggedright #2 }
   \end{minipage}
-  \\[0.1em] \titlerule
+  %}
+  
+%  \\[0.1em] \titlerule
  
 }
 \newcommand{\multitablenl}[2]{%
   %\subsubsection[#1]{#1 \hfill #2}%
+\fbox{  
   \vspace{0.1em}
   \begin{minipage}[\textwidth]{0.12\textwidth}
 	\raggedright  
@@ -197,12 +206,22 @@
   \raggedleft
   {\small \raggedright #2 }
   \end{minipage}
-  
+  }
  
 }
 %Define a new command called \Point which will take care of indentation and 
 %allow you to fill in stuff inside a subsection
 \newcommand{\Point}[1]{%
+  \subsubsection{\tiny}%
+  \raggedright
+  \hangindent=0em\hangafter=1\noindent%
+  \ifTwoColumn
+    \parbox[t]{\textwidth}{#1}
+  \else{\hspace{0.1em} \small #1}%
+  \fi
+  \par%
+}
+\newcommand{\subPoint}[1]{% 
   \subsubsection{\tiny}%
   \raggedright
   \hangindent=0em\hangafter=1\noindent%
@@ -252,5 +271,5 @@
 %Define the \EduDetails command that must be used inside an Education
 %environment defined above
 \newcommand{\EduDetails}[4]{%
-\small {#1}  & {#2}  & {#3}  & {#4} \\[0.1em] %
+\small {#1}  & {#2}  & {#3}  & {#4}\\[0.1em] %
 }
